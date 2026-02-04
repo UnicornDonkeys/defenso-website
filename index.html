@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Defenso – Coming Soon</title>
+  <link rel="icon" type="image/png" href="/img/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg" />
+  <link rel="shortcut icon" href="/img/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Defenso" />
+  <link rel="manifest" href="/img/site.webmanifest" />
+
+  <style>
+    :root {
+      --teal-dark: #003C46;
+      --teal: #0B6A73;
+      --coral: #FF6F61;
+      --aqua-light: #E6FAFB;
+      --yellow: #FFC107;
+      --black: #0A0A0A;
+      --white: #FFFFFF;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Dongle', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(180deg, var(--aqua-light) 0%, var(--white) 60%);
+      color: var(--black);
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 96px;
+    }
+
+    .logo img {
+      height: 48px;
+    }
+
+    .badge {
+      font-size: 16px;
+      background: rgba(255, 111, 97, 0.15);
+      color: var(--coral);
+      padding: 6px 14px;
+      border-radius: 999px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 88px;
+      line-height: 0.95;
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      font-size: 24px;
+      max-width: 520px;
+      color: #333;
+      margin-bottom: 40px;
+    }
+
+    /* Newsletter form */
+    .newsletter {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      max-width: 420px;
+    }
+
+    .newsletter input {
+      padding: 14px 18px;
+      font-size: 18px;
+      border-radius: 14px;
+      border: 1.5px solid rgba(0, 60, 70, 0.2);
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .newsletter input:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(11, 106, 115, 0.15);
+    }
+
+    .newsletter button {
+      margin-top: 6px;
+      align-self: flex-start;
+      background: var(--coral);
+      color: var(--white);
+      border: none;
+      border-radius: 16px;
+      padding: 12px 26px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    .newsletter button:hover {
+      background: var(--teal);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(0, 60, 70, 0.25);
+    }
+
+    .newsletter .privacy {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .newsletter .privacy a {
+      color: var(--teal);
+      text-decoration: none;
+    }
+
+    .newsletter .privacy a:hover {
+      text-decoration: underline;
+    }
+
+    .visual {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      max-width: 420px;
+      margin-left: auto;
+    }
+
+    .shield {
+      position: absolute;
+      width: 75%;
+      height: 75%;
+      background: var(--teal-dark);
+      border-radius: 24px 24px 48px 48px;
+      bottom: 0;
+      left: 0;
+    }
+
+    .orbit {
+      position: absolute;
+      width: 40%;
+      height: 40%;
+      background: var(--coral);
+      border-radius: 50%;
+      top: 0;
+      right: 0;
+      opacity: 0.85;
+    }
+
+    section.info {
+      margin-top: 140px;
+      background: var(--teal-dark);
+      color: var(--white);
+      border-radius: 32px;
+      padding: 72px 64px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+    }
+
+    .info-item h3 {
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+
+    .info-item p {
+      font-size: 20px;
+      opacity: 0.9;
+    }
+
+    #privacy {
+      margin-top: 120px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 16px;
+      color: #444;
+    }
+
+    #privacy h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: var(--black);
+    }
+
+    footer {
+      margin-top: 96px;
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 64px;
+      }
+
+      .visual {
+        margin: 64px auto 0;
+      }
+
+      section.info {
+        grid-template-columns: 1fr;
+        padding: 48px 32px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <img src="/img/defenso-logo.png" alt="Defenso logo" />
+      </div>
+      <span class="badge">Coming soon</span>
+    </header>
+
+    <main class="hero">
+      <div class="content">
+        <h1>La difesa legale <span>semplice</span><br />per tutti.</h1>
+        <p>
+          Defenso è la piattaforma digitale che rende l’accesso alla consulenza
+          legale immediato, chiaro e trasparente, fin dal primo contatto.
+        </p>
+        <form id="emailForm" class="newsletter" method="POST"
+          action="https://n8n.defenso.it/form-test/6aa674dd-396d-474c-a7c2-9d963d19d099">
+          <input type="email" name="email" placeholder="Inserisci la tua email" required />
+          <button type="submit">Avvisami al lancio</button>
+          <p class="privacy">Anche noi odiamo lo spam, non ne riceverai.</p>
+          <p class="privacy">Inserendo la tua email accetti la <a href="#privacy">Privacy Policy</a>.</p>
+          <div class="form-feedback" aria-live="polite"></div>
+        </form>
+      </div>
+
+      <div class="visual">
+        <img src="/img/defenso-logo-image.svg" alt="Defenso logo" />
+      </div>
+    </main>
+
+    <section class="info">
+      <div class="info-item">
+        <h3>Accessibilità</h3>
+        <p>
+          Abbattiamo le barriere che rendono la consulenza legale complessa e
+          spesso inaccessibile.
+        </p>
+      </div>
+      <div class="info-item">
+        <h3>Tutor legali</h3>
+        <p>
+          Figure dedicate che analizzano il caso e accompagnano il cittadino in
+          ogni fase del percorso.
+        </p>
+      </div>
+      <div class="info-item">
+        <h3>Connessione diretta</h3>
+        <p>
+          Ogni richiesta viene indirizzata rapidamente al professionista più
+          adatto alla problematica.
+        </p>
+      </div>
+    </section>
+
+    <section id="privacy"
+      style="margin-top:120px; max-width:800px; margin-left:auto; margin-right:auto; font-size:18px; color:#444;">
+      <h2 style="font-size:36px; margin-bottom:24px; color:#0A0A0A;">Privacy Policy</h2>
+      <p>Ai sensi del Regolamento (UE) 2016/679 (GDPR), Defenso informa che i dati personali forniti tramite questo sito
+        saranno trattati esclusivamente per finalità informative e di aggiornamento sul lancio della piattaforma.</p>
+      <p style="margin-top:16px;">Il conferimento dell’indirizzo email è facoltativo ma necessario per ricevere
+        comunicazioni relative a Defenso. I dati non saranno ceduti a terzi e verranno trattati con strumenti digitali
+        nel rispetto delle misure di sicurezza previste dalla normativa vigente.</p>
+      <p style="margin-top:16px;">In qualsiasi momento l’utente potrà richiedere la cancellazione dei propri dati o
+        revocare il consenso scrivendo a <strong>privacy@defenso.it</strong>.</p>
+    </section>
+
+    <footer>
+      © Defenso — Difesa legale digitale, consapevole e orientata alla soluzione.
+    </footer>
+  </div>
+</body>
+
+<script>
+  const form = document.getElementById('emailForm');
+  const feedback = form.querySelector('.form-feedback');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    feedback.textContent = '';
+    feedback.className = 'form-feedback loading';
+    feedback.textContent = 'Invio in corso…';
+
+    try {
+      const response = await fetch('https://n8n.defenso.it/form-test/6aa674dd-396d-474c-a7c2-9d963d19d099', {
+        method: 'POST',
+        body: formData
+      });
+
+      if (response.ok) {
+        form.reset();
+        feedback.className = 'form-feedback success';
+        feedback.innerHTML = '✔️ Grazie!<br>Ti avviseremo non appena Defenso sarà online.';
+      } else {
+        feedback.className = 'form-feedback error';
+        feedback.textContent = 'Qualcosa è andato storto. Riprova tra poco.';
+      }
+    } catch (error) {
+      feedback.className = 'form-feedback error';
+      feedback.textContent = 'Errore di connessione.';
+      console.log(error)
+    }
+  });
+</script>
+
+</html>
