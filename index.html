@@ -339,7 +339,7 @@ Ogni richiesta viene indirizzata rapidamente al professionista più adatto alla 
       const response = await fetch(`https://n8n.defenso.it/webhook/089da425-dc55-4e02-bb32-80506ebe22cb`, {
         method: 'POST',
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ email: email_data }),
       });
