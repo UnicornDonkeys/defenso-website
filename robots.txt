@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://defenso.it/sitemap.xml
