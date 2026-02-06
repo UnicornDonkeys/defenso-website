@@ -1,3 +1,2 @@
-User-agent: *
-Disallow:
-Sitemap: https://defenso.it/sitemap.xml
+user-agent: *
+sitemap: https://defenso.it/sitemap.xml
